@@ -1,0 +1,70 @@
+/* TheResumer — legal pages */
+
+body.page-legal main {
+  padding-top: var(--nav-h);
+}
+
+.legal-hero {
+  padding: clamp(32px, 5vw, 44px) 0 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.legal-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.35rem);
+  margin-top: 10px;
+}
+
+.legal-hero p {
+  margin-top: 10px;
+  color: var(--muted);
+}
+
+.legal-content {
+  padding: clamp(32px, 5vw, 48px) 0 clamp(64px, 8vw, 88px);
+}
+
+.legal-content article {
+  max-width: 720px;
+}
+
+.legal-content h2 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 28px 0 10px;
+}
+
+.legal-content h2:first-of-type {
+  margin-top: 0;
+}
+
+.legal-content p,
+.legal-content li {
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+
+.legal-content ul {
+  margin: 10px 0 10px 1.2rem;
+  list-style: disc;
+}
+
+.legal-content a {
+  color: var(--brand);
+  font-weight: 600;
+}
+
+.legal-updated {
+  font-size: 0.8125rem;
+  color: var(--muted);
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.legal-footer-min {
+  margin-top: 0;
+  padding: 32px 0;
+  border: none;
+}

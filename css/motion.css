@@ -1,0 +1,281 @@
+/* Client-facing motion & hover — respects prefers-reduced-motion */
+
+@keyframes tr-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes tr-pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(13, 159, 110, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(13, 159, 110, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(13, 159, 110, 0);
+  }
+}
+
+@keyframes tr-shimmer {
+  0% {
+    transform: translateX(-120%) skewX(-12deg);
+  }
+  100% {
+    transform: translateX(220%) skewX(-12deg);
+  }
+}
+
+@keyframes tr-gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes tr-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero__copy {
+    animation: tr-fade-up 0.9s var(--ease) both;
+  }
+
+  .hero__visual {
+    animation: tr-fade-up 1s var(--ease) 0.15s both;
+  }
+
+  .hero__visual .hero__img-wrap {
+    animation: tr-float 7s ease-in-out infinite;
+  }
+
+  .hero__badge-dot {
+    animation: tr-pulse-ring 2.2s ease-out infinite;
+  }
+
+  .hero__stat-card {
+    transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+  }
+
+  .hero__img-wrap:hover .hero__stat-card {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .btn--primary {
+    position: relative;
+    overflow: hidden;
+    background-size: 200% 200%;
+    animation: tr-gradient-shift 8s ease infinite;
+  }
+
+  .btn--primary::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      transparent 40%,
+      rgba(255, 255, 255, 0.35) 50%,
+      transparent 60%
+    );
+    transform: translateX(-120%) skewX(-12deg);
+    pointer-events: none;
+  }
+
+  .btn--primary:hover::after {
+    animation: tr-shimmer 0.75s var(--ease);
+  }
+
+  .service-card__media img {
+    transition: transform 0.65s var(--ease);
+  }
+
+  .service-card:hover .service-card__media img {
+    transform: scale(1.08);
+  }
+
+  .service-card:hover .service-card__icon {
+    transform: scale(1.08) rotate(-3deg);
+    background: var(--brand);
+    color: #fff;
+  }
+
+  .service-card__icon {
+    transition: transform 0.35s var(--ease), background 0.35s, color 0.35s;
+  }
+
+  .service-card__link .ico {
+    transition: transform 0.3s var(--ease);
+  }
+
+  .service-card:hover .service-card__link .ico {
+    transform: translateX(6px);
+  }
+
+  .testi-card,
+  .pricing-card,
+  .ratecard,
+  .addons-card,
+  .services-catalog__item,
+  .service-directory__card,
+  .addon-fee,
+  .services-core-card,
+  .process-step {
+    transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease), border-color 0.35s;
+  }
+
+  .testi-card:hover,
+  .pricing-card:hover,
+  .ratecard:hover,
+  .addons-card:hover,
+  .services-core-card:hover,
+  .process-step:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(12, 27, 46, 0.12);
+  }
+
+  .pricing-card--featured:hover {
+    transform: translateY(-10px) scale(1.02);
+  }
+
+  .saudi-edge__grid li {
+    transition: transform 0.35s var(--ease), border-color 0.35s, background 0.35s;
+  }
+
+  .saudi-edge__grid li:hover {
+    transform: translateX(6px);
+    border-color: var(--brand);
+    background: var(--brand-soft);
+  }
+
+  html[dir='rtl'] .saudi-edge__grid li:hover {
+    transform: translateX(-6px);
+  }
+
+  .gcc-compare__row {
+    transition: border-color 0.35s var(--ease), box-shadow 0.35s var(--ease);
+  }
+
+  .gcc-compare__row:hover {
+    border-color: rgba(34, 94, 176, 0.35);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .gcc-compare__col--us {
+    transition: background 0.35s var(--ease);
+  }
+
+  .gcc-compare__row:hover .gcc-compare__col--us {
+    background: #e8f0fa;
+  }
+
+  .trust-strip__item {
+    transition: transform 0.35s var(--ease);
+  }
+
+  .trust-strip__item:hover {
+    transform: translateY(-4px);
+  }
+
+  .trust-strip__item:hover strong {
+    color: var(--brand-light);
+  }
+
+  .faq-item button {
+    transition: background 0.25s, color 0.25s;
+  }
+
+  .faq-item button:hover {
+    background: var(--brand-soft);
+    color: var(--brand);
+  }
+
+  .nav.is-scrolled {
+    box-shadow: 0 8px 32px rgba(12, 27, 46, 0.08);
+  }
+
+  .logo__mark {
+    transition: transform 0.4s var(--ease);
+  }
+
+  .logo:hover .logo__mark {
+    transform: rotate(-6deg) scale(1.05);
+  }
+
+  .hero__chip {
+    transition: transform 0.3s var(--ease), border-color 0.3s, background 0.3s;
+  }
+
+  .hero__chip:hover {
+    transform: translateY(-2px);
+    border-color: var(--brand);
+    background: #fff;
+  }
+
+  .port-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .port-card__media img {
+    transition: transform 0.6s var(--ease);
+  }
+
+  .port-card:hover .port-card__media img {
+    transform: scale(1.06);
+  }
+
+  .why-panel {
+    transition: transform 0.45s var(--ease), box-shadow 0.45s;
+  }
+
+  .why-panel:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .cta-final__panel {
+    transition: transform 0.4s var(--ease), box-shadow 0.4s;
+  }
+
+  .cta-final__panel:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 48px rgba(12, 27, 46, 0.14);
+  }
+
+  [data-reveal] {
+    transition-duration: 0.85s;
+    transition-property: opacity, transform;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__visual .hero__img-wrap,
+  .hero__badge-dot,
+  .btn--primary {
+    animation: none !important;
+  }
+
+  .btn--primary::after {
+    display: none;
+  }
+}

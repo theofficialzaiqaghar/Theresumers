@@ -1,0 +1,1 @@
+/* Scroll reveal handled globally in main.js */
