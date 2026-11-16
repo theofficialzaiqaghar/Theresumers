@@ -6,15 +6,22 @@
   const live = document.querySelector('[data-hero-rotator-live]');
 
   if (rotator && track && !reduceMotion) {
+    const viewport = rotator.querySelector('.hero-rotator__viewport');
     const items = [...track.querySelectorAll('.hero-rotator__item')];
     let index = 0;
     const itemHeight = () => items[0]?.offsetHeight || 0;
 
+    const syncWidth = (logicalIndex) => {
+      const item = items[logicalIndex];
+      if (!viewport || !item) return;
+      viewport.style.width = `${Math.ceil(item.getBoundingClientRect().width)}px`;
+    };
+
     const goTo = (nextIndex, animate = true) => {
-      index = nextIndex % items.length;
-      const offset = -index * itemHeight();
       track.style.transition = animate ? 'transform 0.55s cubic-bezier(0.22, 1, 0.36, 1)' : 'none';
-      track.style.transform = `translateY(${offset}px)`;
+      track.style.transform = `translateY(${-nextIndex * itemHeight()}px)`;
+      index = nextIndex % items.length;
+      syncWidth(index);
       if (live) live.textContent = items[index].textContent;
     };
 
@@ -24,33 +31,37 @@
       track.appendChild(cloneFirst);
     }
 
-    let timer = window.setInterval(() => {
+    syncWidth(0);
+
+    const tick = () => {
       if (index >= items.length - 1) {
-        goTo(index + 1);
+        goTo(items.length, true);
         window.setTimeout(() => goTo(0, false), 560);
-        index = 0;
       } else {
-        goTo(index + 1);
+        goTo(index + 1, true);
       }
-    }, 2800);
+    };
+
+    let timer = window.setInterval(tick, 2800);
 
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) {
         window.clearInterval(timer);
       } else {
-        timer = window.setInterval(() => {
-          if (index >= items.length - 1) {
-            goTo(index + 1);
-            window.setTimeout(() => goTo(0, false), 560);
-            index = 0;
-          } else {
-            goTo(index + 1);
-          }
-        }, 2800);
+        timer = window.setInterval(tick, 2800);
       }
     });
 
-    window.addEventListener('resize', () => goTo(index, false));
+    window.addEventListener('resize', () => {
+      syncWidth(index);
+      goTo(index, false);
+    });
+  } else if (rotator && track && reduceMotion) {
+    const viewport = rotator.querySelector('.hero-rotator__viewport');
+    const first = track.querySelector('.hero-rotator__item');
+    if (viewport && first) {
+      viewport.style.width = `${Math.ceil(first.getBoundingClientRect().width)}px`;
+    }
   }
 
   const trustNums = document.querySelectorAll('[data-count]');

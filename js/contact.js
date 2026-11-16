@@ -1,5 +1,5 @@
 (() => {
-  const FORM_EMAIL = 'support@theresumer.co.uk';
+  const FORM_EMAIL = 'muhammadsaadullah093@gmail.com';
   const form = document.getElementById('contact-inquiry-form');
   const success = document.getElementById('contact-success');
   const statusEl = document.getElementById('contact-form-status');

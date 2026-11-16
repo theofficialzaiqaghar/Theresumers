@@ -43,6 +43,23 @@ body.page-service-inner .nav__dropdown-toggle {
   max-width: 48ch;
 }
 
+.svc-hero__price {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--brand);
+  background: #fff;
+  border: 1px solid rgba(34, 94, 176, 0.25);
+  border-radius: 999px;
+}
+
+.svc-hero__price span {
+  font-weight: 500;
+  color: var(--muted);
+}
+
 .svc-hero__figure {
   margin: 0;
   border-radius: var(--radius);
