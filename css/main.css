@@ -620,6 +620,21 @@ html[dir='rtl'] .btn .ico {
   color: #fff;
 }
 
+.footer__credit {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.footer__credit a {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer__credit a:hover {
+  color: var(--brand-light);
+}
+
 /* Back to top */
 .back-to-top {
   position: fixed;

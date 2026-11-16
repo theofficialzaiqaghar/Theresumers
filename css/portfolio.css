@@ -103,8 +103,9 @@ body.page-portfolio main {
 
 .port-card__media--contain img {
   object-fit: contain;
-  padding: 24px;
-  background: var(--brand-soft);
+  object-position: top center;
+  padding: 12px;
+  background: #f7f9fc;
 }
 
 .port-card__body {
