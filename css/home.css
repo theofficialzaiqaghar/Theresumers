@@ -85,16 +85,20 @@ main {
   height: 1.1em;
   line-height: 1.1;
   vertical-align: bottom;
+  transition: width 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .hero-rotator__track {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   will-change: transform;
 }
 
 .hero-rotator__item {
   flex: 0 0 auto;
+  width: max-content;
+  max-width: max-content;
   height: 1.1em;
   line-height: 1.1;
   white-space: nowrap;

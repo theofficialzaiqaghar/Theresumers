@@ -1,6 +1,6 @@
 /** Shared contact + image URLs (from content.md brand standards) */
 window.TheResumer = {
-  email: 'support@theresumer.co.uk',
+  email: 'muhammadsaadullah093@gmail.com',
   phones: [
     { label: 'Nisha Jhon — Executive Manager', tel: '+447347084731', display: '+44 7347 084731' },
     { label: 'Ruby Willams — Executive Academic Writer', tel: '+447717932912', display: '+44 7717 932912' },
